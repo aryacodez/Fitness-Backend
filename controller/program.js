@@ -72,7 +72,10 @@ exports.update = (async (req, res) => {
                     return res.status(400).json({ msg: `${i} exercise not present` })
                 }
             }
-            program.exercises = arr
+
+            for(const j of arr){
+                program.exercises.push(j)
+            }
             const updated = await program.save()
             return res.status(200).json({
                 success: true,
@@ -105,7 +108,9 @@ exports.update = (async (req, res) => {
                     return res.status(400).json({ msg: `${i} exercise not present` })
                 }
             }
-            program.exercises = arr
+            for(const j of arr){
+                program.exercises.push(j)
+            }
             const updated = await program.save()
             return res.status(200).json({
                 success: true,
